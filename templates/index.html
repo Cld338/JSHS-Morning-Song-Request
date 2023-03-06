@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="static/css/menu_bar.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <META name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+    <title>기상송 신청</title>
+    <script src="https://kit.fontawesome.com/08e60da0c5.js" crossorigin="anonymous"></script>
+    <script>
+        function changeTitle(value){
+            const titleElement 
+                = document.getElementById('input-id');
+            titleElement.value = value;
+            const titleElement2 
+                = document.getElementById('hidden-id');
+            titleElement2.value = value;
+            const searchElement
+                = document.getElementById('id-select-ul');
+            searchElement.style.display = 'none';
+            console.log(value)
+        }
+    </script>
+</head>
+<body>
+    <div class="menu-bar">
+        &nbsp&nbsp제주과학고등학교 방송부 쉼표
+        <div class="home-btn-container">
+            {% if id %}
+                <a href="./logout" class="login-btn">
+                    로그아웃
+                </a>
+            {% else %}
+                <a href="./login" class="login-btn">
+                    관리자 로그인
+                </a>
+            {% endif %}
+            <a href="./" class="home-btn">
+                기상송 신청
+            </a>
+            <a href="./past" class="">
+                역대 기상송
+            </a>
+        </div>
+    </div>
+    <div style="height: 140px;"></div>
+    <div class="main-title" id="align-center">
+        기상송 신청
+    </div>
+    <div class="sub-title" id="align-center">
+        잔잔한 발라드, 일본 노래 등 부적절한 노래 신청 불가
+    </div>
+    <div style="height: 60px;"></div>
+    {% if search %}
+        <style>
+            #id-select-ul{
+                display: block;
+                border: 1px solid #bbb;
+            }
+        </style>
+    {% endif %}
+    <div>
+        <div class="form-container" id="align-center">
+            <form action="./" method="POST" enctype="multipart/form-data" class="filebox" id="align-center">
+                <div class="form-inner-box">
+                    <div class="input-container" id="input-id-container">
+                        신청자<br>
+                        <input type="text" name="input-id" class="input-id" id="input-id">
+                    </div>
+                </div>
+                <div id='id-select' >
+                    <ul id="id-select-ul">
+                        {% for id in ids%}
+                            <input type="button" class="option-btn"  onclick="changeTitle('{{id[0]}}')" value="{{id[0]}}">
+                        {% endfor %}
+                    </ul>
+                </div>
+            </form>
+                
+            <form action="./" method="POST" enctype="multipart/form-data" class="input-form" id="align-center">
+                <input type="text" name="hidden-id" id="hidden-id" hidden value="">
+                <div class="form-inner-box">
+                    <div class="input-container">
+                        노래 제목<br>
+                        <input type="text" name="input-title" class="input-title" class="input">
+                    </div>
+                    <div class="input-container">
+                        가수<br>
+                        <input type="text" name="input-singer" class="input-singer">
+                    </div>
+                    <div class="input-container">
+                        유튜브 링크<br>
+                        <input type="text" name="input-url" class="input-url" placeholder="">
+                    </div>
+                </div>
+                <div style="height: 20px;"></div>
+                {% if error_id_input %}
+                    <div class="error-id-input" id="error-text">
+                        ※{{error_id_input}}
+                    </div>
+                {% endif %}
+                {% if error_title_input %}
+                    <div class="error-title-input" id="error-text">
+                        ※{{error_title_input}}
+                    </div>
+                {% endif %}
+                {% if error_singer_input %}
+                    <div class="error-singer-input" id="error-text">
+                        ※{{error_singer_input}}
+                    </div>
+                {% endif %}
+                {% if error_url_input %}
+                    <div class="error-url-input" id="error-text">
+                        ※{{error_url_input}}
+                    </div>
+                {% endif %}
+                <div style="height: 10px;"></div>
+                <input type="submit" name="input-submit" class="input-submit" value="신청하기">
+            </form>
+        </div>
+    </div>
+    <div style="height: 40px;"></div>
+    <div class="queue-table-container" id="align-center">
+        <table class="queue-table" cellspacing="0">
+            <tr align="center" bgcolor="white" class="title">
+                <td class="td0"></td>
+                <td class="td1">신청자</td>
+                <td class="td2">노래 제목</td>
+                <td class="td3">가수</td>
+            </tr>
+            {% for data in queue %}
+                <tr align="center" bgcolor="white" class="contents">
+                <td class="td0">
+                    {% if id %}
+                        <form action="./" method="POST" enctype="multipart/form-data" class="input-form" id="align-center">
+                            <button value="{{loop.index}}" name="music-check-btn" class="music-check-btn">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                        </form>
+                    {% endif %}
+                </td>
+                <td class="td1">{{data['id']}}</td>
+                {% if id %}
+                    <td class="td2"><a href="{{data['url']}}">{{data['title']}}</a></td>
+                {% else %}
+                    <td class="td2">{{data['title']}}</td>
+                {% endif %}
+                <td class="td3">{{data['singer']}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

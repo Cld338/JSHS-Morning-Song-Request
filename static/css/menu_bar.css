@@ -1,0 +1,30 @@
+.menu-bar{
+    /* margin-left: -10px; */
+    margin-top: -10px;
+    height: 40px;
+    width: 100%;
+    padding: 10px 0;
+    background: rgb(47, 85, 151);
+    color: #fff;
+    /* padding-left: 2vw; */
+    font-size: 1.2rem;
+    display: flex;
+}
+.home-btn-container{
+    margin-left:auto;
+}
+.home-btn-container a{
+    line-height: 40px;
+    text-decoration: none;
+    margin-right: 1vw;
+    color:#fff;
+    font-size: 1rem;
+}
+.home-btn-container a:hover{
+    color: rgb(255, 192, 0);
+}
+.login-btn{
+    background: none;
+    color: #fff;
+    border: none;
+}

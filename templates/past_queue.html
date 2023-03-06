@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="static/css/menu_bar.css">
+    <link rel="stylesheet" href="static/css/past_queue.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <META name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+    <title>역대 기상송</title>
+    <script src="https://kit.fontawesome.com/08e60da0c5.js" crossorigin="anonymous"></script>
+</head>
+
+    
+<body>
+    <div class="menu-bar">
+        &nbsp&nbsp제주과학고등학교 방송부 쉼표
+        <div class="home-btn-container">
+            {% if id %}
+                <a href="./logout" class="login-btn">
+                    로그아웃
+                </a>
+            {% else %}
+                <a href="./login" class="login-btn">
+                    관리자 로그인
+                </a>
+            {% endif %}
+            <a href="./" class="home-btn">
+                기상송 신청
+            </a>
+            <a href="./past" class="">
+                역대 기상송
+            </a>
+        </div>
+    </div>
+    <div style="height: 140px;"></div>
+    <div class="main-title" id="align-center">
+        역대 기상송
+    </div>
+    <div class="sub-title" id="align-center">
+        신청할 곡이 중복되는지 확인해주세요<br>
+        (한 달 안에 재생된 곡 신청 X) 
+    </div>
+    <div style="height: 40px;"></div>
+    <div class="search-container">
+        <form action="./past" method="POST" enctype="multipart/form-data" class="input-form" id="align-center">
+            <div>
+                제목 검색
+            </div>
+            <input type="text" name="search-music" class="search-music" id="align-center" value="{{input_text}}">    
+        </form>    
+    </div>
+    <div style="height: 20px;"></div>
+    <div class="queue-table-container" id="align-center">
+        <table class="queue-table" cellspacing="0">
+            <tr align="center" bgcolor="white" class="title">
+                <td class="td0">재생 날짜</td>
+                <td class="td1">신청자</td>
+                <td class="td2">노래 제목</td>
+                <td class="td3">가수</td>
+            </tr>
+            {% for data in queue %}
+                <tr align="center" bgcolor="white" class="contents">
+                    <td class="td0">
+                        <span>
+                            {{data['date']}}
+                        </span>
+                    </td>
+                    <td class="td1">
+                        <span>
+                            {{data['id']}}
+                        </span>
+                    </td>
+                    {% if id %}
+                        <td class="td2"><a href="{{data['url']}}">{{data['title']}}</a></td>
+                    {% else %}
+                        <td class="td2">
+                            <span>
+                                {{data['title']}}
+                            </span>
+                        </td>
+                    {% endif %}
+                    <td class="td3">
+                        <span>
+                            {{data['singer']}}
+                        </span>
+                    </td>
+                </tr>
+            {% endfor %}
+          </table>
+    </div>
+</body>
+</html>

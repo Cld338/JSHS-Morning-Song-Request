@@ -1,0 +1,112 @@
+*{
+    color: #304155;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    /* border:1px red solid; */
+}
+html{
+    font-size: 2vw;
+}
+body{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#align-center{
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title{
+    width: fit-content;
+    font-size: 4rem;
+    font-weight: 600;
+    color: #4472c4;
+}
+.sub-title{
+    width: fit-content;
+    font-size: 1.3rem;
+    color: rgb(124, 124, 124);
+    text-align: center;
+}
+
+
+.search-container{
+    width: 65vw;
+    height: 2rem;
+    padding:5px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(218, 227, 243);
+    border-radius: 5px;
+}
+.search-container form{
+    height: 2rem;
+    display: flex;
+    line-height: 2rem;
+}
+.search-container form div{
+    width: 25%;
+    font-size: 1rem;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 0.1rem;
+}
+.search-music{
+    width: 75%;
+    line-height: 10rem;
+}
+
+
+.queue-table-container{
+    width: 80vw;
+}
+.queue-table{
+    border: 2px #304155 solid;
+    width:100%;
+    border-radius: 4px;
+}
+.queue-table .title td{
+    font-size: 0.9rem;
+    font-weight: 800;
+    border-bottom: 2px #304155 solid;
+    background: rgb(132, 151, 176);
+    color: #fff;
+}
+.queue-table .title .td0{
+    width: 20.5%;
+    border-right: 2px #304155 solid;
+}
+.queue-table .title .td1{
+    width: 22%;
+}
+.queue-table .title .td2{
+    width: 40%;
+    border-left: 2px #304155 solid;
+    border-right: 2px #304155 solid;
+}
+.queue-table .title .td3{
+    width: 17.5%;
+}
+.queue-table .contents td span{
+    font-size: 0.8rem;
+    font-weight: 550;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.queue-table .contents .td0{
+    border-right: 2px #304155 solid;
+}
+.queue-table .contents .td2{
+    border-left: 2px #304155 solid;
+    border-right: 2px #304155 solid;
+}

@@ -1,0 +1,232 @@
+
+*{
+    color: #304155;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 2vw;
+}
+body{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#align-center{
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+.main-title{
+    width: fit-content;
+    font-size: 4rem;
+    font-weight: 600;
+    color: #4472c4;
+}
+.sub-title{
+    width: fit-content;
+    font-size: 1.3rem;
+    color: rgb(124, 124, 124);
+    text-align: center;
+}
+
+<!-- 검색 -->
+
+#id-select-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#id-select-ul::-webkit-scrollbar {
+    display: none;
+}
+#id-select{
+    margin: 0;
+    margin-left: 3px;
+    width: 9.5vw;
+    height: 100px;
+    display: inline-block;
+    border: none;
+    position: relative;
+}
+#id-select ul {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    overflow: auto;
+    max-height: 100px;
+    line-height: 0;
+    border: none;
+    margin-left: -2px;
+}
+.option-btn {
+    border: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    font-size: 0.82rem;
+    text-align: center;
+    background: #fff; 
+    
+}
+.option-btn:hover {
+    background: rgb(77, 77, 77);
+    color: #fff;
+}
+
+
+.form-container{
+    width: 80vw;
+    display: flex;
+}
+.input-form{
+    /* width: fit-content; */
+    justify-content: center;
+    width: 100%;
+}
+.form-inner-box{
+    /* border: 2px black solid; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.input-container{
+    font-size: 1.1rem;
+    text-align: center;`
+    color: rgb(68, 84, 106);
+    background: rgb(218, 227, 243);
+    padding: 0;
+    padding: 3px;
+}
+.form-container form:nth-of-type(1) .form-inner-box div:nth-of-type(1){
+    width: 9vw;
+}
+.form-container form:nth-of-type(2) .form-inner-box div:nth-of-type(1){
+    margin-left: 4vw;
+    width: 27vw;
+}
+.form-container form:nth-of-type(2) .form-inner-box div:nth-of-type(2){
+    width: 9vw;
+}
+.form-container form:nth-of-type(2) .form-inner-box div:nth-of-type(3){
+    width: 20vw;
+}
+#input-id-container{
+    margin-left: 0;
+}
+input{
+    text-align: left;
+    margin-left: -2px;
+    font-size: 0.8rem;
+    border: 2px #bbb solid;
+}
+.input-id{
+    width: 100%;
+}
+.input-title{
+    width: 100%;
+}
+.input-singer{
+    width: 100%;
+}
+.input-url{
+    width: 100%;
+}
+.input-submit{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 20vw;
+    border-radius:3px;
+    border: 2px #bbb solid;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: #566cab;
+    color: #fff;
+}
+.input-submit:hover{
+    background: rgb(77, 77, 77);
+    color: #fff;
+}
+
+
+
+
+
+.queue-table-container{
+    width: 70vw;
+}
+.queue-table{
+    border: 2px #304155 solid;
+    width:100%;
+    border-radius: 4px;
+}
+.queue-table .title td{
+    font-size: 0.9rem;
+    font-weight: 800;
+    border-bottom: 2px #304155 solid;
+    background: rgb(132, 151, 176);
+    color: #fff;
+}
+.queue-table .title .td0{
+    width: 5%;
+    border-right: 2px #304155 solid;
+}
+.queue-table .title .td1{
+    width: 20.5%;
+}
+.queue-table .title .td2{
+    width: 45%;
+    border-left: 2px #304155 solid;
+    border-right: 2px #304155 solid;
+}
+.queue-table .title .td3{
+    width: 19.5%;
+}
+.queue-table .contents td{
+    font-size: 0.8rem;
+    font-weight: 550;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.queue-table  .contents .td0{
+    border-right: 2px #304155 solid;
+}
+.queue-table  .contents .td0 button{
+    background: none;
+    border: none;
+}
+.queue-table  .contents .td0 button:hover{
+    background: #000000;
+}
+.queue-table  .contents .td0 button i{
+    font-size: 1rem;
+    color: yellowgreen;
+}
+.queue-table .contents .td2{
+    border-left: 2px #304155 solid;
+    border-right: 2px #304155 solid;
+}
